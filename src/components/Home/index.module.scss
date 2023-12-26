@@ -1,0 +1,8 @@
+@import "@styles/index.scss";
+
+.home {
+  @include flex-c;
+
+  font-size: 3rem;
+  text-align: center;
+}

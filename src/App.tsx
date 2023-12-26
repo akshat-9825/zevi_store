@@ -1,7 +1,7 @@
-import "./App.scss";
+import HomePage from "./components/Home";
 
 function App() {
-  return <div className="yolo row">Hello</div>;
+  return <HomePage />;
 }
 
 export default App;
