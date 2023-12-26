@@ -1,7 +1,7 @@
 import "./App.scss";
 
 function App() {
-  return <>Hello</>;
+  return <div className="yolo row">Hello</div>;
 }
 
 export default App;
