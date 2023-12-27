@@ -1,0 +1,36 @@
+@import "@styles/index.scss";
+
+.search_bar_position {
+  margin-top: 40px;
+  max-width: 628.37px;
+}
+
+.search_bar {
+  border-radius: 13.735px;
+  border: 0.687px solid rgba(0, 0, 0, 0.5);
+  font-size: 21.976px;
+  height: 57px;
+  padding-left: 27.47px;
+}
+
+.search_icon {
+  bottom: 13px;
+  right: 30.37px;
+  height: 32px;
+  width: 32px;
+}
+
+.search_page_separation {
+  gap: 50px;
+}
+
+.card_container {
+  margin-top: 135px;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.no_data_available {
+  color: gray;
+}
