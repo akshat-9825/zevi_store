@@ -18,38 +18,3 @@
   right: 40px;
   top: 40px;
 }
-
-.search_container {
-  width: 70%;
-  max-width: 915px;
-  margin-top: 162px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.search_bar {
-  height: 83px;
-  background-color: white;
-  border: none;
-  border-radius: 20px;
-  color: rgba(0, 0, 0, 0.4);
-  font-size: $h1-size;
-  padding-left: 40px;
-
-  &:focus-visible {
-    outline: none;
-  }
-
-  &:focus::placeholder {
-    color: transparent;
-  }
-
-  &::placeholder {
-    color: rgba(0, 0, 0, 0.4);
-  }
-}
-
-.search_icon {
-  bottom: 20px;
-  right: 42px;
-}

@@ -4,6 +4,10 @@
   flex-direction: row-reverse;
 }
 
+@mixin text-c {
+  text-align: center;
+}
+
 @mixin justify-c {
   justify-content: center;
 }

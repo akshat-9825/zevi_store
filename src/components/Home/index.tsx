@@ -1,20 +1,39 @@
-import { useCallback, useState } from "react";
+import { useEffect, useState } from "react";
 import cn from "classnames";
-import { SearchIcon } from "@/assets/icons/SearchIcon";
-import SuggestionModal from "./SuggestionModal";
+import axios from "axios";
 
 import styles from "./index.module.scss";
 import "@styles/_common.scss";
+import SearchBar from "../SearchBar";
 
 const HomePage = () => {
-  const [focused, setFocused] = useState(false);
+  const [focused, setFocused] = useState(true);
+  const [trendingData, setTrendingData] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
-  const handleFocus = useCallback(() => {
-    setFocused(true);
-  }, []);
+  const getTrendingData = async () => {
+    const limit = 5;
+    await axios
+      .get(`https://dummyjson.com/products?limit=${limit}`)
+      .then((res) => {
+        setTrendingData(res.data.products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  const handleBlur = useCallback(() => {
+  const getSuggestions = async () => {
+    await axios
+      .get("https://dummyjson.com/products/categories")
+      .then((res) => setSuggestions(res.data))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
     setFocused(false);
+    getTrendingData();
+    getSuggestions();
   }, []);
 
   return (
@@ -31,16 +50,12 @@ const HomePage = () => {
         className={cn(styles.logo, "absolute cursor")}
         onClick={() => window.location.reload()}
       />
-      <div className={cn("row flex-c relative", styles.search_container)}>
-        <input
-          className={cn(styles.search_bar, "full-width")}
-          placeholder="Search"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
-        <SearchIcon className={cn(styles.search_icon, "absolute cursor")} />
-        {focused ? <SuggestionModal /> : null}
-      </div>
+      <SearchBar
+        trendingData={trendingData}
+        suggestions={suggestions}
+        focused={focused}
+        setFocused={setFocused}
+      />
     </div>
   );
 };
