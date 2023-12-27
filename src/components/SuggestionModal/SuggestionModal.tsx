@@ -30,7 +30,16 @@ const SuggestionModal = ({
   const handleSuggestionClick = useCallback(
     (query: string) => {
       if (query.trim() !== "") {
-        navigate(`/search?category=${encodeURIComponent(query)}`);
+        navigate(`/search?category=${encodeURIComponent(query.toLowerCase())}`);
+      }
+    },
+    [navigate]
+  );
+
+  const handleTrendingClick = useCallback(
+    (query: string) => {
+      if (query.trim() !== "") {
+        navigate(`/search?query=${encodeURIComponent(query.toLowerCase())}`);
       }
     },
     [navigate]
@@ -57,7 +66,7 @@ const SuggestionModal = ({
                   title: string;
                 }) => {
                   return (
-                    <div key={id}>
+                    <div key={id} onClick={() => handleTrendingClick(title)}>
                       <ModalCard imageUrl={thumbnail} title={title} />
                     </div>
                   );

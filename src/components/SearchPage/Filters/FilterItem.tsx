@@ -20,9 +20,9 @@ const FilterItem = ({ title, data }: { title: string; data: string[] }) => {
         <div className={cn(styles.filter_items, "column")}>
           {data.map((item, index) => {
             return (
-              <div className={styles.filter_item} key={index}>
+              <div className={cn(styles.filter_item, "row")} key={index}>
                 <input type="checkbox" />
-                {item}
+                <div>{item}</div>
               </div>
             );
           })}

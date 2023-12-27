@@ -17,7 +17,7 @@ const Card = ({ imageUrl, title, discount, price, rating }: CardProps) => {
   const [liked, setLiked] = useState(false);
 
   const calculateDiscountedPrice = useMemo(() => {
-    return (price - (price * discount) / 100).toFixed(1);
+    return (price - (price * discount) / 100).toFixed(0);
   }, [discount, price]);
 
   const Loading = () => {

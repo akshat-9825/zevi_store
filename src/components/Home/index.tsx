@@ -18,17 +18,13 @@ const HomePage = () => {
       .get(`https://dummyjson.com/products?limit=${limit}`)
       .then((res) => {
         setTrendingData(res.data.products);
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }, []);
 
   const getSuggestions = useCallback(async () => {
     await axios
       .get("https://dummyjson.com/products/categories")
-      .then((res) => setSuggestions(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => setSuggestions(res.data));
   }, []);
 
   useEffect(() => {

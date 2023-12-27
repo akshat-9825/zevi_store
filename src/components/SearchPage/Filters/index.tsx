@@ -12,8 +12,7 @@ const Filters = () => {
   const getAllCategories = useCallback(async () => {
     await axios
       .get("https://dummyjson.com/products/categories")
-      .then((res) => setCategories(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => setCategories(res.data));
   }, []);
 
   useEffect(() => {
