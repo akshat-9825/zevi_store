@@ -1,30 +1,11 @@
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-ac {
-  align-items: center;
-}
-
-.flex-jc {
-  justify-content: center;
-}
-
-.flex-c {
-  @extend .flex-ac;
-  @extend .flex-jc;
-}
-
 @mixin flex-row-reverse {
   @include flex-row;
 
   flex-direction: row-reverse;
+}
+
+@mixin text-c {
+  text-align: center;
 }
 
 @mixin justify-c {
