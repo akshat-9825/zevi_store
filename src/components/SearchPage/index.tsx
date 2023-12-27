@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import cn from "classnames";
@@ -14,20 +14,19 @@ import "@styles/_common.scss";
 export default function SearchPage() {
   const location = useLocation();
   const [searchResults, setSearchResults] = useState<Product[]>([]);
-  console.log(searchResults);
-
-  const fetchSearchResults = useCallback(async (searchQuery: string) => {
-    await axios
-      .get(`https://dummyjson.com/products/search?q=${searchQuery}`)
-      .then((res) => setSearchResults(res.data.products))
-      .catch((err) => console.log(err));
-  }, []);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const searchQuery = queryParams.get("query");
-    fetchSearchResults(searchQuery || "");
-  }, [fetchSearchResults, location.search]);
+    const searchCategory = queryParams.get("category");
+    let api = "https://dummyjson.com/products";
+    if (searchQuery) api += `/search/q=${searchQuery}`;
+    if (searchCategory) api += `/category/${searchCategory}`;
+    axios
+      .get(api)
+      .then((res) => setSearchResults(res.data.products))
+      .catch((err) => console.log(err));
+  }, [location.search]);
 
   return (
     <div className={cn(styles.search_page_container)}>

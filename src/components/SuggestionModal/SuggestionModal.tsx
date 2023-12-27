@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import cn from "classnames";
+import { useNavigate } from "react-router-dom";
 import { Product } from "../Home/utils";
 import ModalCard from "./ModalCard";
 
@@ -13,6 +14,7 @@ const SuggestionModal = ({
   data: Product[] | undefined;
   suggestions: string[] | undefined;
 }) => {
+  const navigate = useNavigate();
   const modalRef = useRef(null);
   const [limit, setLimit] = useState(5);
 
@@ -24,6 +26,15 @@ const SuggestionModal = ({
       setLimit(elementWidth >= 1025 ? 5 : 4);
     }
   }, []);
+
+  const handleSuggestionClick = useCallback(
+    (query: string) => {
+      if (query.trim() !== "") {
+        navigate(`/search?category=${encodeURIComponent(query)}`);
+      }
+    },
+    [navigate]
+  );
 
   return (
     <div
@@ -60,7 +71,10 @@ const SuggestionModal = ({
           {suggestions &&
             suggestions.slice(0, 5).map((suggestion: string) => {
               return (
-                <div className="h4" key={suggestion}>
+                <div
+                  className="h4"
+                  key={suggestion}
+                  onClick={() => handleSuggestionClick(suggestion)}>
                   {suggestion}
                 </div>
               );
