@@ -48,7 +48,7 @@ const SearchBar = ({
       if (setFocused) {
         setFocused(false);
       }
-    }, 1500);
+    }, 500);
   }, [setFocused]);
 
   const inputRef = useRef(null);

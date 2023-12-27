@@ -25,6 +25,11 @@
   background-color: inherit;
   font-size: $h5-size;
   font-weight: 300;
+
+  &:hover {
+    scale: 1.02;
+    transition: 0.5s;
+  }
 }
 
 .modal_card_img {
