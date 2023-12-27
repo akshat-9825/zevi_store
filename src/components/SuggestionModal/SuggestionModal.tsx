@@ -10,8 +10,8 @@ const SuggestionModal = ({
   data,
   suggestions,
 }: {
-  data: Product[];
-  suggestions: string[];
+  data: Product[] | undefined;
+  suggestions: string[] | undefined;
 }) => {
   const modalRef = useRef(null);
   const [limit, setLimit] = useState(5);

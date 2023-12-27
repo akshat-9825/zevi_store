@@ -1,0 +1,39 @@
+@import "@styles/index.scss";
+
+.card_details {
+  gap: 12px;
+}
+
+.card_img {
+  border-radius: 2px;
+}
+
+.card_heart_icon.card_heart_icon {
+  right: 16px;
+  top: 16px;
+
+  &_liked {
+    fill: red;
+  }
+}
+
+.card {
+  &_title {
+    font-size: 20px;
+  }
+
+  &_price {
+    font-size: 20px;
+    gap: 5px;
+  }
+}
+
+.original_price {
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.discounted_price {
+  font-weight: 600;
+  color: #6d84ff;
+}
