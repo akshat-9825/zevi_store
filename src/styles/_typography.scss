@@ -9,3 +9,9 @@ $h6-size: 12px;
 $default-font-weight: 400;
 $bold-font-weight: 600;
 $bolder-font-weight: 800;
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

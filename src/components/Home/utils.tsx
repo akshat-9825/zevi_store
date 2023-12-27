@@ -10,6 +10,7 @@ export interface Product {
   creationAt: string;
   updatedAt: string;
   category: string;
+  rating: number;
 }
 
 export interface ModalCardType {

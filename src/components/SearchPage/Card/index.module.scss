@@ -1,16 +1,31 @@
 @import "@styles/index.scss";
 
+.card_container {
+  max-width: 239px;
+
+  &:hover {
+    scale: 1.02;
+    transition: 0.3s;
+  }
+}
+
 .card_details {
   gap: 12px;
+  justify-content: space-evenly;
 }
 
 .card_img {
-  border-radius: 2px;
+  border-radius: 4px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .card_heart_icon.card_heart_icon {
   right: 16px;
   top: 16px;
+  z-index: 3;
 
   &_liked {
     fill: red;
@@ -19,6 +34,8 @@
 
 .card {
   &_title {
+    @include ellipsis;
+
     font-size: 20px;
   }
 
@@ -31,6 +48,7 @@
 .original_price {
   font-weight: 300;
   color: rgba(0, 0, 0, 0.4);
+  text-decoration: line-through;
 }
 
 .discounted_price {

@@ -7,7 +7,7 @@ export const HeartIcon = memo<JSX.IntrinsicElements["svg"]>(
     className,
     onClick,
     color = "none",
-    stroke = "white",
+    stroke = "gray",
   }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
