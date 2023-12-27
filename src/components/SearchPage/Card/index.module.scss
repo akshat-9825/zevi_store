@@ -9,6 +9,32 @@
   }
 }
 
+.card_image_container {
+  .active_product {
+    display: none;
+  }
+
+  &:hover {
+    .active_product {
+      transition: 0.3s;
+      display: flex;
+    }
+  }
+}
+
+.active_product {
+  width: 239px;
+  height: 47px;
+  background: rgba(109, 132, 255, 0.71);
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  text-shadow: 0px 4px 32px rgba(0, 0, 0, 0.25);
+  bottom: 5px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
 .card_details {
   gap: 12px;
   justify-content: space-evenly;

@@ -43,16 +43,22 @@ const Card = ({ imageUrl, title, discount, price, rating }: CardProps) => {
             [styles.card_heart_icon_liked]: liked,
           })}
         />
-        <Suspense fallback={<Loading />}>
-          <img
-            src={imageUrl}
-            alt="card"
-            height={325}
-            width={239}
-            loading="lazy"
-            className={styles.card_img}
-          />
-        </Suspense>
+        <div className={cn(styles.card_image_container, "relative")}>
+          <Suspense fallback={<Loading />}>
+            <img
+              src={imageUrl}
+              alt="card"
+              height={325}
+              width={239}
+              loading="lazy"
+              className={styles.card_img}
+            />
+            <div
+              className={cn(styles.active_product, "column flex-c absolute")}>
+              View Product
+            </div>
+          </Suspense>
+        </div>
       </div>
       <div className={cn(styles.card_details, "column")}>
         <div className={styles.card_title}>{title}</div>
