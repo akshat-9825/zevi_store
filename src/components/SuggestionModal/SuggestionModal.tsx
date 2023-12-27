@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import cn from "classnames";
-import { Product } from "./utils";
+import { Product } from "../Home/utils";
 import ModalCard from "./ModalCard";
 
 import styles from "./suggestion-modal.module.scss";

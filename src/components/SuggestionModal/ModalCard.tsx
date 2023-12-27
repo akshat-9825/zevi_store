@@ -1,6 +1,6 @@
 import { useState } from "react";
 import cn from "classnames";
-import { ModalCardType } from "./utils";
+import { ModalCardType } from "../Home/utils";
 
 import styles from "./suggestion-modal.module.scss";
 import "@styles/_common.scss";

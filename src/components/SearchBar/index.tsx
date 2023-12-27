@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useCallback } from "react";
 import cn from "classnames";
 import { SearchIcon } from "@/assets/icons/SearchIcon";
 import { Product } from "../Home/utils";
-import SuggestionModal from "../Home/SuggestionModal";
+import SuggestionModal from "../SuggestionModal/SuggestionModal";
 
 import styles from "./index.module.scss";
 import "@styles/_common.scss";
